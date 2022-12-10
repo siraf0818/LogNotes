@@ -36,3 +36,22 @@ export const NoNotesText = styled.Text`
   font-size: 20px;
   color: #000;
 `;
+
+export const ButtonsContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-end;
+`;
+
+export const LogoutButton = styled.TouchableHighlight`
+  height: 60px;
+  background: black;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+
+export const LogoutButtonText = styled.Text`
+  font-size: 16px;
+  color: #fff;
+`;

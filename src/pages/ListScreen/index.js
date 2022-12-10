@@ -15,6 +15,9 @@ import {
   NoNotes,
   NoNotesImage,
   NoNotesText,
+  ButtonsContainer,
+  LogoutButton,
+  LogoutButtonText,
 } from "./styles";
 
 import NoteItem from "../../components/NoteItem";
@@ -75,9 +78,13 @@ export default () => {
           <NoNotesText style={{ fontFamily: "WorkSans-SemiBold" }}>Empty</NoNotesText>
         </NoNotes>
       )}
-      <TouchableHighlight onPress={logout}>
-        <Text>Logout</Text>
-      </TouchableHighlight>
+      <ButtonsContainer>
+        <LogoutButton underlayColor="#FF0000" onPress={logout}>
+          <LogoutButtonText style={{ fontFamily: "WorkSans-Regular" }}>
+            Logout
+          </LogoutButtonText>
+        </LogoutButton>
+      </ButtonsContainer>
     </Container>
   );
 };
