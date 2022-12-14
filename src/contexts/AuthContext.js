@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
         await AsyncStorage.setItem(authenticatedKey, "true");
         setAuthenticated(true);
       } else {
-        Alert.alert("Alert", `wrong password or username`);
+        Alert.alert("Alert", `wrong username or password`);
       }
       setLoading(false);
     } catch (error) {

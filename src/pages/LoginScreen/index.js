@@ -1,7 +1,7 @@
 import { useAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, Text, TextInput, Button, View } from "react-native";
+import { StyleSheet, Text, Image, TextInput, View, Pressable } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
   const { login } = useAuth();
@@ -10,6 +10,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.noteLogo} source={require("../../assets/logo.png")} />
       <TextInput
         value={user}
         onChangeText={(text) => setUser(text)}
@@ -23,11 +24,13 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry={true}
         style={styles.input}
       />
-      <Button
+      <Pressable
         title={"Login"}
-        style={styles.button}
+        style={styles.lgnbutton}
         onPress={() => login(user, password)}
-      />
+      >
+        <Text style={styles.lgntext}>{"Login"}</Text>
+      </Pressable>
     </View>
   );
 };
@@ -39,23 +42,31 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ecf0f1",
   },
   input: {
-    width: 200,
+    width: "75%",
     height: 44,
     padding: 10,
     borderWidth: 1,
     borderColor: "black",
-    marginBottom: 10,
+    marginBottom: 15,
   },
-  button: {
-    width: 200,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "black",
+  lgnbutton: {
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 15,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 50,
+    elevation: 3,
     backgroundColor: "black",
-    marginBottom: 10,
+  },
+  lgntext: {
+    color: "#fff",
+    fontSize: 17,
+  },
+  noteLogo: {
+    marginBottom: 45,
   },
 });
